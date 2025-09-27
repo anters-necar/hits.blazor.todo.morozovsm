@@ -1,0 +1,48 @@
+﻿@page "/"
+@inject IDataService data
+@attribute [Authorize]
+
+<PageTitle>Задачи</PageTitle>
+
+<h1>Мои задачи</h1>
+
+<table class=" table table-bordered">
+	<thead>
+		<tr>
+			<th>ИД</th>
+			<th>Заголовок</th>
+			<th>Описание</th>
+			<th>Создано</th>
+			<th>Завершено</th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (tasks == null)
+		{
+			<tr> <td colspan="5">Loading...</td></tr>
+		}
+		else
+		{
+			@foreach (var task in tasks)
+			{
+				<tr>
+					<td>@task.Id</td>
+					<td>@task.Title</td>
+					<td>@task.Description</td>
+					<td>@task.CreatedDate</td>
+					<td>@task.FinishDate</td>
+				</tr>
+			}
+		}
+		
+	</tbody>
+</table>
+
+@code {
+	IEnumerable<TaskItem>? tasks;
+	protected override async Task OnInitializedAsync()
+	{
+		await base.OnInitializedAsync();
+		tasks = await data.GetTaskItems();
+	}
+}
