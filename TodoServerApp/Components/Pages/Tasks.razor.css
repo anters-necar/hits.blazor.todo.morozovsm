@@ -1,0 +1,9 @@
+﻿.card {
+    min-width: 30rem;
+    border: 1px solid #ddd !important; /* Явно задайте границу */
+    border-radius: 0.5rem !important;
+}
+.card-group {
+    gap: 1rem; /* Добавляет промежутки между карточками */
+    flex-wrap: wrap;
+}

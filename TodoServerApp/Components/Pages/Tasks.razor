@@ -6,37 +6,30 @@
 
 <h1>Мои задачи</h1>
 
-<table class=" table table-bordered">
-	<thead>
-		<tr>
-			<th>ИД</th>
-			<th>Заголовок</th>
-			<th>Описание</th>
-			<th>Создано</th>
-			<th>Завершено</th>
-		</tr>
-	</thead>
-	<tbody>
-		@if (tasks == null)
-		{
-			<tr> <td colspan="5">Loading...</td></tr>
-		}
-		else
-		{
+<div class="container">
+	@if (tasks == null)
+	{
+		<p colspan="5">Loading...</p>
+	}
+	else
+	{
+		<div class="card-group">
 			@foreach (var task in tasks)
 			{
-				<tr>
-					<td>@task.Id</td>
-					<td>@task.Title</td>
-					<td>@task.Description</td>
-					<td>@task.CreatedDate</td>
-					<td>@task.FinishDate</td>
-				</tr>
+				<div class="card">
+					<div class="card-header">
+						@task.Title
+					</div>
+					<div class="card-body">
+						<p>@task.Description</p>
+						<p>@task.CreatedDate</p>
+						<p>@task.FinishDate</p>
+					</div>
+				</div>
 			}
-		}
-		
-	</tbody>
-</table>
+		</div>
+	}
+</div>
 
 @code {
 	IEnumerable<TaskItem>? tasks;
