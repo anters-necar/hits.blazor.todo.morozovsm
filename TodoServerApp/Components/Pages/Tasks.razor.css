@@ -1,5 +1,5 @@
 ﻿.card {
-    min-width: 30rem;
+    min-width: 15rem;
     border: 1px solid #ddd !important; /* Явно задайте границу */
     border-radius: 0.5rem !important;
 }
