@@ -15,7 +15,7 @@
 	}
 	else
 	{
-		<div class="btn-group m-2">
+		<div class="m-2">
 			<button class="btn btn-primary" @onclick="AddTask">Новая задача</button>
 		</div>
 		<div class="card-group">
@@ -31,7 +31,7 @@
 						<p>@task.FinishDate</p>
 					</div>
 					<div class="card-footer">
-						<a class="btn btn-primary" href="tasks/@task.Id">Изменить</a
+						<a class="btn btn-primary" href="tasks/@task.Id">Изменить</a>
 						<button class="btn btn-primary" @onclick="async () => await DeleteTask(task.Id)">Удалить</button>
 					</div>
 				</div>
